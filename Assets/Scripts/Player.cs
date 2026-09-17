@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speed = 5f;
+
+    private Rigidbody2D rb;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        float moveHorizontal = Input.GetAxis("Horizontal");// reconhece o movimeto do player horizontalmente, seja para esquerda ou direita
+
+        rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocity.y);// faz o calculo da movimentação do player, multiplicando a velocidade pelo movimento horizontal e mantendo a velocidade vertical atual do player
     }
 }
