@@ -8,6 +8,8 @@ TagManager:
   - Dano
   - Ground2
   - Oponente
+  - Parede
+  - Parede2
   layers:
   - Default
   - TransparentFX

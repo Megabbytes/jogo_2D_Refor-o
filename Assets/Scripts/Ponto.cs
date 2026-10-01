@@ -13,7 +13,6 @@ public class Ponto : MonoBehaviour
     public float forcaVerticalOponente = 7f;
     private int pontos = 0;
     private int pontos2 = 0;
-
     private Rigidbody2D rb;
 
     void Start()
@@ -35,7 +34,7 @@ public class Ponto : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground2"))
         {
             pontos += 1;
-            Debug.Log("Ponto! Placar:" + pontos + " " + pontos2);
+            Debug.Log("Ponto! Placar: " + pontos + " " + pontos2);
             ResetarBola();
         }
 
@@ -84,6 +83,7 @@ public class Ponto : MonoBehaviour
             forcaVerticalOponente
         );
     }
+
 
     void ResetarBola()
     {
