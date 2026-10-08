@@ -1880,6 +1880,10 @@ PrefabInstance:
       propertyPath: bola
       value: 
       objectReference: {fileID: 1482018012}
+    - target: {fileID: 2399507394789097223, guid: a8e0ccf02797a154cbf70d1328263df6, type: 3}
+      propertyPath: velocidade
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3904412676462231557, guid: a8e0ccf02797a154cbf70d1328263df6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.66
