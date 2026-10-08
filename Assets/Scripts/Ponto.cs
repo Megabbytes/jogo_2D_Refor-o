@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ponto : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Ponto : MonoBehaviour
     private int pontos = 0;
     private int pontos2 = 0;
     private Rigidbody2D rb;
+
+    public int pontos_reiniciar = 5;
 
     void Start()
     {
@@ -97,5 +100,16 @@ public class Ponto : MonoBehaviour
         rb.angularVelocity = 0f;
         transform.position = spawnBolaPlayer.position;
     }
+    private void Update()
+    {
+        if (pontos >= pontos_reiniciar || pontos2 >= pontos_reiniciar)
+        {
+
+            Time.timeScale = 1f;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
 }
 
