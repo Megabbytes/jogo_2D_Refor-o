@@ -1,9 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ponto : MonoBehaviour
 {
-    [Header("Spawn")]
+    [Header("Spawn inimigo")]
     public Transform spawnBola;
+
+    [Header("Spawn Player")]
+    public Transform spawnBolaPlayer;
 
     [Header("Força da bola")]
     public float forcaPlayer = 8f;
@@ -26,16 +30,15 @@ public class Ponto : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             pontos2 += 1;
-            Debug.Log("Ponto! Total: " + pontos);
-            Debug.Log("Ponto! Placar:" + pontos + " | " + pontos2);
-            ResetarBola();
+            Debug.Log("Ponto! Placar: " + pontos + " | " + pontos2);
+            ResetarBolainimigo();
         }
 
         if (collision.gameObject.CompareTag("Ground2"))
         {
             pontos += 1;
-            Debug.Log("Ponto! Placar: " + pontos + " " + pontos2);
-            ResetarBola();
+            Debug.Log("Ponto! Placar: " + pontos + " | " + pontos2);
+            Reseterbolaplayer();
         }
 
         if (pontos >= 5)
@@ -46,11 +49,6 @@ public class Ponto : MonoBehaviour
         else if (pontos2 >= 5)
         {
             Debug.Log("Jogador 2 venceu!");
-        }
-        
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            ResetarBola();
         }
 
        
@@ -83,14 +81,21 @@ public class Ponto : MonoBehaviour
             forcaVerticalOponente
         );
     }
-
-
-    void ResetarBola()
+    
+    
+    void ResetarBolainimigo()
     {
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
 
         transform.position = spawnBola.position;
+
+    }
+    void Reseterbolaplayer()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        transform.position = spawnBolaPlayer.position;
     }
 }
 
